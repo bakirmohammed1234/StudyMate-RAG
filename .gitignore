@@ -1,0 +1,10 @@
+
+.env
+venv/
+/dataset/
+.ipynb_checkpoints/
+NoteBook/vector_index.pkl
+faiss_store_openai.pkl
+faiss_store.pkl
+uploads/
+TP5.pdf
