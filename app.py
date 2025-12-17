@@ -26,7 +26,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # --- MÉMOIRE GLOBALE (Pour l'historique du chat) ---
 # Dans une vraie app de prod, on utiliserait une base de données.
-# Pour ton usage local, une liste globale suffit.
+
 CHAT_HISTORY = [] 
 
 print("Chargement du modèle d'embedding...")
@@ -99,7 +99,7 @@ def ask_question():
     CHAT_HISTORY.append({"role": "user", "content": query})
 
     if not os.path.exists(VECTORSTORE_PATH):
-        CHAT_HISTORY.append({"role": "ai", "content": "Veuillez d'abord uploader des documents.", "sources": []})
+        CHAT_HISTORY.append({"role": "ai", "content": "Veuillez d'abord uploader des documents. et Tu dois aussi répondre de manière naturelle si l'utilisateur fait une interaction humaine, comme dire (hello), poser une question informelle ou demander de l'aide.", "sources": []})
         return redirect(url_for('index'))
 
     with open(VECTORSTORE_PATH, "rb") as f:
@@ -114,26 +114,27 @@ def ask_question():
     # Question: {query}
     # Réponse:"""
     prompt = f"""
-    Tu es un assistant expert. Réponds à la question en utilisant UNIQUEMENT le contexte suivant.
-    
-    IMPORTANT - FORMAT DE RÉPONSE :
-    Tu dois répondre directement en format HTML valide, sans balises <html> ou <body> et SANS blocs de code (```).
-    
-    Utilise ces balises pour structurer ta réponse :
-    - <h3>Titre</h3> pour les titres de sections.
-    - <strong>Mot important</strong> pour mettre en gras.
-    - <ul><li>Point 1</li><li>Point 2</li></ul> pour les listes.
-    - <p>Paragraphe</p> pour le texte normal.
-    - <br> pour les sauts de ligne.
-    
-    Contexte :
-    {context}
+Tu es un assistant expert en enseignement et révision de cours. 
+Ton rôle est de répondre aux questions des utilisateurs en utilisant UNIQUEMENT le contenu des documents fournis si le contenu n'existe pas repond avec non cela est pas mentionne dans le contenu. 
+Tu dois aussi répondre de manière naturelle si l'utilisateur fait une interaction humaine, seulement poser une question informelle ou demander de l'aide n'ajoute rien.
+tu dois repondre avec la langue utilisée par l'utilisateur dans sa question.
 
-    Question :
-    {query}
+IMPORTANT - FORMAT DE RÉPONSE :
+- Fournis la réponse directement en HTML valide(ex  <p>, <div>, <ol>, <li> ,<ul>, <h1>, <h2>, <h3> ...), sans balises <html> ou <body>.
+- Ne jamais utiliser de blocs de code (```).
+- Toutes tes réponses doivent être en HTML valide, prêt à être affiché sur une page web.
+Règles de réponse :
+- Si la question concerne le contenu des documents, répond de façon détaillée ou sous forme de résumé selon le contexte.
+- Important: Toujours utiliser le contexte fourni pour répondre aux questions liées aux documents.
 
-    Réponse HTML :
-    """
+Contexte:
+{context}
+
+Question de l'utilisateur :
+{query}
+
+Réponse HTML :
+"""
 
     try:
         response = llm.invoke(prompt)
