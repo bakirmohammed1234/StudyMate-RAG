@@ -25,18 +25,19 @@ The project also includes an **automatic RAG evaluation pipeline** using **DeepE
 ## Key Components Interaction
 <img width="1201" height="352" alt="image" src="https://github.com/user-attachments/assets/0e37f5ca-9dc5-4813-8b4d-1ba03576c266" />
 
-##  Screenshots
 
-### Home & Upload & PDF Processing
+## Home & PDF Processing Interface
 <img width="945" height="413" alt="image" src="https://github.com/user-attachments/assets/446432a9-ecb3-445a-a0d4-71c21eeb0ff6" />
 
 <p>This screenshot shows the main interface of MyStudyMate, where users can upload multiple PDF documents, process them into a vector database, and start an interactive conversation. The assistant provides document-grounded answers with source references, offering a smooth and intuitive study experience through a modern, dark-themed UI.</p>
 
 
-### PDF Processing
+## Faithfulness & Hallucination Control
 <img width="945" height="406" alt="image" src="https://github.com/user-attachments/assets/8b3d2d5a-5712-413d-b3fa-8a8a1f116645" />
 
-### RAG Evaluation Results
+<p>This screenshot demonstrates MyStudyMate’s strict document-grounded behavior. When a user asks a question that is not covered in the uploaded PDFs, the system explicitly responds that the information is not mentioned in the content, ensuring high faithfulness and preventing hallucinated answers.</p>
+
+## RAG Evaluation Results
 <img width="573" height="259" alt="image" src="https://github.com/user-attachments/assets/5233e558-dfc6-4311-a56c-b83bb4248db4" />
 <img width="767" height="259" alt="image" src="https://github.com/user-attachments/assets/d033addf-2b07-4a8f-b964-125335c9a195" />
 
