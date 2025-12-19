@@ -135,7 +135,7 @@ def run_evaluation():
     ]
     
     # 6. Évaluer
-    print("⏳ Évaluation en cours...\n")
+    print(" Évaluation en cours...\n")
     
     try:
         results = evaluate(test_cases=test_cases, metrics=metrics)
@@ -193,7 +193,7 @@ def run_evaluation():
                 avg_faithfulness = sum(all_faithfulness) / len(all_faithfulness)
                 print(f"Faithfulness moyen: {avg_faithfulness:.2f}")
         
-        print("\n✅ Évaluation terminée!\n")
+        print("\n Évaluation terminée!\n")
         
         return results
         
