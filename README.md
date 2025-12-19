@@ -30,6 +30,8 @@ The project also includes an **automatic RAG evaluation pipeline** using **DeepE
 ### Home & Upload & PDF Processing
 <img width="945" height="413" alt="image" src="https://github.com/user-attachments/assets/446432a9-ecb3-445a-a0d4-71c21eeb0ff6" />
 
+<p>This screenshot shows the main interface of MyStudyMate, where users can upload multiple PDF documents, process them into a vector database, and start an interactive conversation. The assistant provides document-grounded answers with source references, offering a smooth and intuitive study experience through a modern, dark-themed UI.</p>
+
 
 ### PDF Processing
 <img width="945" height="406" alt="image" src="https://github.com/user-attachments/assets/8b3d2d5a-5712-413d-b3fa-8a8a1f116645" />
