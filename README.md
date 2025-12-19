@@ -25,6 +25,8 @@ The project also includes an **automatic RAG evaluation pipeline** using **DeepE
 ## Key Components Interaction
 <img width="1201" height="352" alt="image" src="https://github.com/user-attachments/assets/0e37f5ca-9dc5-4813-8b4d-1ba03576c266" />
 
+<img width="169" height="540" alt="image" src="https://github.com/user-attachments/assets/c12f783c-21ba-460b-ab22-91a8e375bef0" />
+
 
 ## Home & PDF Processing Interface
 <img width="945" height="413" alt="image" src="https://github.com/user-attachments/assets/446432a9-ecb3-445a-a0d4-71c21eeb0ff6" />
