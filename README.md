@@ -41,6 +41,8 @@ The project also includes an **automatic RAG evaluation pipeline** using **DeepE
 <img width="573" height="259" alt="image" src="https://github.com/user-attachments/assets/5233e558-dfc6-4311-a56c-b83bb4248db4" />
 <img width="767" height="259" alt="image" src="https://github.com/user-attachments/assets/d033addf-2b07-4a8f-b964-125335c9a195" />
 
+<p>This screenshot shows the automatic evaluation of the RAG pipeline using DeepEval. The system achieves 100% pass rate, with perfect scores in Answer Relevancy and Faithfulness, demonstrating that the generated responses are both relevant to the user query and strictly grounded in the retrieved document context.</p>
+
 
 
 
