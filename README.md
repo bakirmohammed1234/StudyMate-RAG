@@ -24,7 +24,7 @@ The project also includes an **automatic RAG evaluation pipeline** using **DeepE
 ##  Screenshots
 
 
-```markdown
+
 ### Home & Upload & PDF Processing
 <img width="945" height="413" alt="image" src="https://github.com/user-attachments/assets/446432a9-ecb3-445a-a0d4-71c21eeb0ff6" />
 
