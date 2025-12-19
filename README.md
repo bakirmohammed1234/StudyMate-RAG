@@ -19,11 +19,13 @@ The project also includes an **automatic RAG evaluation pipeline** using **DeepE
 -  Multilingual responses (same language as the user)  
 -  Answers strictly grounded in document content  
 
----
+## Architecture 
+<img width="5958" height="6830" alt="image1" src="https://github.com/user-attachments/assets/206481bb-d8c9-4144-a038-a85b96609ebd" />
+
+## Key Components Interaction
+<img width="1201" height="352" alt="image" src="https://github.com/user-attachments/assets/0e37f5ca-9dc5-4813-8b4d-1ba03576c266" />
 
 ##  Screenshots
-
-
 
 ### Home & Upload & PDF Processing
 <img width="945" height="413" alt="image" src="https://github.com/user-attachments/assets/446432a9-ecb3-445a-a0d4-71c21eeb0ff6" />
