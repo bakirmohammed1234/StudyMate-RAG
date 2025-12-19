@@ -8,3 +8,7 @@ faiss_store_openai.pkl
 faiss_store.pkl
 uploads/
 TP5.pdf
+__pycache__/
+.DS_Store
+*.pyc
+.deepeval/

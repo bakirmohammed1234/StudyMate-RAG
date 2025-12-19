@@ -5,10 +5,12 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 # Tes imports LangChain
 from dotenv import load_dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+# from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
 from langchain_groq import ChatGroq
+from langchain_ollama import ChatOllama
 # from langchain_google_genai import ChatGoogleGenerativeAI
 from werkzeug.utils import secure_filename
 
@@ -30,14 +32,46 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 CHAT_HISTORY = [] 
 
 print("Chargement du modèle d'embedding...")
-embedder = HuggingFaceEmbeddings()
-
-llm = ChatGroq(
-    groq_api_key=gr_TOKEN,
-    model_name="llama-3.1-8b-instant",
-    temperature=0.2,
-    max_tokens=500,
+embedder = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
+
+# Patch manuel
+embedder.query_encode_kwargs = {}
+llm = ChatOllama(
+    model="gpt-oss:120b-cloud", # Remplacez par le nom exact du modèle (ex: "mistral", "gemma2", etc.)
+    temperature=0.2,
+    num_predict=500,  # Équivalent de max_tokens
+)
+# llm = ChatGroq(
+#     groq_api_key=gr_TOKEN,
+#     model_name="llama-3.1-8b-instant",
+#     temperature=0.2,
+#     max_tokens=500,
+# )
+def run_rag(query, vectordb, llm):
+    retriever = vectordb.as_retriever(search_kwargs={"k": 5})
+    docs = retriever.invoke(query)
+
+    # ✅ conversion Document → str
+    contexts = [
+        d.page_content if hasattr(d, "page_content") else d
+        for d in docs
+    ]
+
+    prompt = f"""
+Contexte:
+{' '.join(contexts)}
+
+Question:
+{query}
+
+Réponse:
+"""
+    answer = llm.invoke(prompt).content
+    return answer, contexts
+
+
 # llm = ChatGoogleGenerativeAI(
 #    model="gemini-2.0-flash",
 #     api_key=Gemini_API_KEY,
