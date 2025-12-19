@@ -43,6 +43,8 @@ The project also includes an **automatic RAG evaluation pipeline** using **DeepE
 
 <p>This screenshot shows the automatic evaluation of the RAG pipeline using DeepEval. The system achieves 100% pass rate, with perfect scores in Answer Relevancy and Faithfulness, demonstrating that the generated responses are both relevant to the user query and strictly grounded in the retrieved document context.</p>
 
+** Author: **
+Mohammed Bakir
 
 
 
